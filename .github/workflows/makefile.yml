@@ -1,0 +1,31 @@
+name: Deploy to Vercel
+
+# mainブランチにpushをトリガーにする
+on:
+  push:
+    branches:
+      - main 
+
+# ジョブを定義
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4   # リポジトリのコードをクローンする
+
+      - uses: actions/setup-node@v4 # node.jsをセットアップする
+        with:
+          node-version: '22'        # nodeのバージョン22を指定
+
+      - run: npm ci
+
+      - run: npm run test
+
+      - run: npm install -g vercel@latest
+
+      - run: vercel pull --yes --environment=production
+
+      - run: vercel build --prod
+
+      - run: vercel deploy --prebuilt --prod
