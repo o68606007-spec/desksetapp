@@ -7,9 +7,16 @@
     "test": "vitest"
   },
   "dependencies": {
-    "next": "latest",
+    "@chakra-ui/react": "^3.36.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@supabase/supabase-js": "^2.110.8",
+    "framer-motion": "^12.42.2",
+    "next": "^15.5.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.83.0",
+    "vite-plugin-env-compatible": "^2.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

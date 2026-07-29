@@ -1,7 +1,12 @@
+import { SearchForm } from "./components/SearchForm";
+import { HomeTitle } from "./components/HomeTitle";
+
 export default function Page() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <HomeTitle />
+
+      <SearchForm />
+    </>
   )
 }
