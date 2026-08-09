@@ -22,10 +22,7 @@ jobs:
       - name: Check environment variables # 環境変数が設定されているか確認
         run: |
           if [ -z "${{ secrets.VITE_SUPABASE_URL }}" ]; then echo "VITE_SUPABASE_URL is not set"; else echo "VITE_SUPABASE_URL is set"; fi
-          if [ -z "${{ secrets.VITE_SUPABASE_ANON_KEY }}" ]; then echo "VITE_SUPABASE_ANON_KEY is not set"; else echo "VITE_SUPABASE_ANON_KEY is set"; fi
-          if [ -z "${{ secrets.VERCEL_ORG_ID }}" ]; then echo "VERCEL_ORG_ID is not set"; else echo "VERCEL_ORG_ID is set"; fi
-          if [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]; then echo "VERCEL_PROJECT_ID is not set"; else echo "VERCEL_PROJECT_ID is set"; fi
-          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then echo "VERCEL          
+          if [ -z "${{ secrets.VITE_SUPABASE_ANON_KEY }}" ]; then echo "VITE_SUPABASE_ANON_KEY is not set"; else echo "VITE_SUPABASE_ANON_KEY is set"; fi      
       - name: Run test (CI)
         run: npm test
         env:
