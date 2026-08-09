@@ -56,16 +56,23 @@ jobs:
         run: |
               echo "Checking Vercel environment..."
 
-              if grep -q "^VITE_SUPABASE_URL=https://" .vercel/.env.production.local; then
-                echo "VITE_SUPABASE_URL: valid format"
+              if [ -f .vercel/.env.production.local ]; then
+                echo ".vercel/.env.production.local exists"
               else
-                echo "VITE_SUPABASE_URL: invalid or missing"
+                echo ".vercel/.env.production.local does NOT exist"
+                exit 1
+              fi
+
+              if grep -q "^VITE_SUPABASE_URL=https://" .vercel/.env.production.local; then
+                echo "VITE_SUPABASE_URL has valid URL format"
+              else
+                echo "VITE_SUPABASE_URL is missing or invalid"
               fi
 
               if grep -q "^VITE_SUPABASE_ANON_KEY=" .vercel/.env.production.local; then
-                echo "VITE_SUPABASE_ANON_KEY: exists"
+                echo "VITE_SUPABASE_ANON_KEY exists"
               else
-                echo "VITE_SUPABASE_ANON_KEY: missing"
+                echo "VITE_SUPABASE_ANON_KEY is missing"
               fi
           
       - name: Build Project Artifacts
