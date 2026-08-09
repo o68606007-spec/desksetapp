@@ -9,18 +9,36 @@ import { ComeBackButton } from "../components/ComeBackButton";
 export default async function SearchPage({ searchParams }: Props) {
     const params = await searchParams;
 
-    const data = await getWorkspaceSets({
-        searchParams: Promise.resolve({
-            budget: params.budget as string || null,
-            space: params.space as string || null,
-            color: params.color as string || null,
-        })
-    });
+    const hasSearchCondition =
+        params.budget ||
+        params.space ||
+        params.color;
+
+
+    let data = {
+        data: []
+    };
+
+
+    if (hasSearchCondition) {
+        data = await getWorkspaceSets({
+            searchParams: Promise.resolve({
+                budget: params.budget as string || null,
+                space: params.space as string || null,
+                color: params.color as string || null,
+            })
+        });
+    }
 
     return (
         <>
             <SearchOutcomeTitle />
-            <WorkspaceList workspaceSets={data.data} />
+            <WorkspaceList workspaceSets={data.data}      searchParams={{
+                    budget: params.budget as string,
+                    space: params.space as string,
+                    color: params.color as string,
+                }}
+            />
             <ComeBackButton />
         </>
     )

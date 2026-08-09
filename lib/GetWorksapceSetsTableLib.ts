@@ -11,7 +11,7 @@ export async function getWorkspaceSets(params: Props) {
         query = query.lte("budget", Number(param.budget));
     }
     if (param.space) {
-        query = query.gte("space", Number(param.space));
+        query = query.lte("space", Number(param.space));
     }
     if (param.color) {
         query = query.eq("color", param.color);

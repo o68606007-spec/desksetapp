@@ -11,3 +11,21 @@ export type FormData = {
     space: string | null,
     color: string | null,
 }
+
+export type DetailItemsInforomation = {
+    id: string,
+    title: string,
+    budget: string,
+    space: string,
+    color: string,
+    use_case: string,
+}
+
+
+export type DetailItemsProps = {
+    id: string,
+    category: string,
+    item_name: string,
+    image_url: string,
+    url: string,
+}

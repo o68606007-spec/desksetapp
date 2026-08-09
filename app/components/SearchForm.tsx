@@ -10,7 +10,7 @@ export function SearchForm() {
     const router = useRouter();
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = handleSubmit((data: FormData) => {
+    const onSubmit = ((data: FormData) => {
         // Handle form submission
         const params = new URLSearchParams();
         if (data.budget) {
@@ -34,18 +34,22 @@ export function SearchForm() {
 
     return (
         <div className="mx-auto max-w-xl rounded-xl bg-white p-8 shadow-lg">
+        <h2 className="mb-6 text-2xl font-bold text-gray-800">
+            検索
+        </h2>
         <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-6"
         >
             {/* 予算 */}
             <div>
-            <label className="mb-2 block font-medium">
+            <label className="mb-2 block font-medium" htmlFor="budget-label">
                 予算
             </label>
 
             <select
                 {...register("budget")}
+                id="budget-label"
                 className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
             >
                 <option value="">選択してください</option>
@@ -55,14 +59,15 @@ export function SearchForm() {
             </select>
             </div>
 
-            {/* スペース */}
+            {/* スペース（横幅） */}
             <div>
-            <label className="mb-2 block font-medium">
-                スペース
+            <label className="mb-2 block font-medium" htmlFor="space-label">
+                スペース（横幅）
             </label>
 
             <select
                 {...register("space")}
+                id="space-label"
                 className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
             >
                 <option value="">選択してください</option>
@@ -74,23 +79,26 @@ export function SearchForm() {
 
             {/* 色 */}
             <div>
-            <label className="mb-2 block font-medium">
+            <label className="mb-2 block font-medium" htmlFor="color-label">
                 色
             </label>
 
             <select
                 {...register("color")}
+                id="color-label"
                 className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
             >
                 <option value="">選択してください</option>
-                <option value="white">白</option>
-                <option value="black">黒</option>
-                <option value="brown">茶</option>
+                <option value="white">white</option>
+                <option value="black">black</option>
+                <option value="brown">brown</option>
+                <option value="wood">wood</option>
             </select>
             </div>
 
             <button
             type="submit"
+            test-id="search-button"
             className="rounded-md bg-blue-600 py-2 font-semibold text-white transition hover:bg-blue-700"
             >
             検索
