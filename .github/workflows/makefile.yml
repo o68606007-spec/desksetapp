@@ -52,7 +52,7 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-      - name: Check Vercel environment # test用確認
+      - name: Check Vercel environment # test用削除予定
         run: |
               echo "Checking Vercel environment..."
 
