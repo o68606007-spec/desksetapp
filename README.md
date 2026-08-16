@@ -19,8 +19,8 @@ Desk Set App
 依存関係のインストールをしてください。 npm ci
 
 .envファイルを作成しsupabaseの設定値を入力してください
-1.Desk_Set_Appという名前でプロジェクト名を作成してください。
-2.workspace_sets、workspace_itemsという名前のテーブルを作成し、以下のカラムを作成してください。
+- Desk_Set_Appという名前でプロジェクト名を作成してください。
+- workspace_sets、workspace_itemsという名前のテーブルを作成し、以下のカラムを作成してください。
 
 workspace_sets
 |Name	|Type	|option |
@@ -45,7 +45,7 @@ workspace_items
 外部キーは以下で設定してください。
 workspace_sets.id = workspace_items.workspace_set_id
 
-3.プロジェクトURLとプロジェクトキーを.env内のVITE_SUPABASE_URLとVITE_SUPABASE_PROJECT_KEY変数にコピー&ペーストしてください。
+- プロジェクトURLとプロジェクトキーを.env内のVITE_SUPABASE_URLとVITE_SUPABASE_PROJECT_KEY変数にコピー&ペーストしてください。
 
 # 起動の仕方
 npm run dev ターミナルでURLをクリックすると、開くことができます。
